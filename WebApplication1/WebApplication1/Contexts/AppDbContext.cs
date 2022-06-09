@@ -41,7 +41,7 @@ public class AppDbContext : DbContext
                     IdAction = 2,
                     StartTime = DateTime.Parse("03/05/2022"),
                     EndTime = null,
-                    NeedSpecialEquipment = true
+                    NeedSpecialEquipment = false
                 });
         });
 
@@ -55,10 +55,11 @@ public class AppDbContext : DbContext
             });
         });
 
-        modelBuilder.Entity<Firefighter>(t =>
+        modelBuilder.Entity<FireTruck>(t =>
         {
             t.HasData(new FireTruck
             {
+                IdFireTruck = 1,
                 OperationalNumber = "A1",
                 SpecialEquipment = false
             });
@@ -84,6 +85,6 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Firefighter_Action>().HasKey(l => new {l.IdFirefighter, l.IdAction});
-        SeedDb(modelBuilder);
+        // SeedDb(modelBuilder);
     }
 }
