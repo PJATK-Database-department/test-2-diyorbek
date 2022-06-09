@@ -30,4 +30,24 @@ public class ActionController : ControllerBase
             return NotFound(e.Message);
         }
     }
+
+    [HttpDelete]
+    [Route("{idAction:int}")]
+    public async Task<IActionResult> Delete([FromRoute] int idAction)
+    {
+        try
+        {
+            var deletedActionId = await _service.DeleteAction(idAction);
+
+            return Ok(deletedActionId);
+        }
+        catch (NotFoundError e)
+        {
+            return NotFound(e.Message);
+        }
+        catch (CompletedActionError e)
+        {
+            return NotFound(e.Message);
+        }
+    }
 }

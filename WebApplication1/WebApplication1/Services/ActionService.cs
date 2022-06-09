@@ -16,7 +16,8 @@ public class ActionService : IActionService
 
     public async Task<ActionDto> GetAction(int id)
     {
-        if (!await CheckActionExists(id)) throw new NotFoundError("Action(id=" + id + ") not found");
+        if (!await CheckActionExists(id))
+            throw new NotFoundError("Action(id=" + id + ") not found");
 
         return await _context.Actions
             .Include(action => action.FirefighterActions)
@@ -32,6 +33,22 @@ public class ActionService : IActionService
                     .Select(fAction => fAction.Firefighter)
                     .ToList()
             }).FirstAsync();
+    }
+
+    public async Task<int> DeleteAction(int id)
+    {
+        if (!await CheckActionExists(id))
+            throw new NotFoundError("Action(id=" + id + ") not found");
+
+        var action = (await _context.Actions.FindAsync(id))!;
+
+        if (action.EndTime != null)
+            throw new CompletedActionError(id);
+
+        _context.Actions.Remove(action);
+        await _context.SaveChangesAsync();
+
+        return id;
     }
 
     private async Task<bool> CheckActionExists(int id)
