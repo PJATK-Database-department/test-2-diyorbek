@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.Contexts;
 using WebApplication1.DTOs;
 using WebApplication1.Errors;
+using Action = WebApplication1.Models.Action;
 
 namespace WebApplication1.Services;
 
@@ -45,7 +46,7 @@ public class ActionService : IActionService
         if (action.EndTime != null)
             throw new CompletedActionError(id);
 
-        _context.Actions.Remove(action);
+        _context.Set<Action>().Remove(action);
         await _context.SaveChangesAsync();
 
         return id;
