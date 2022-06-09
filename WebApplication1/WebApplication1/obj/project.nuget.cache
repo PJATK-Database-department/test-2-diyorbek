@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "VzhO8l5CnIO/8AAA0ORswX6MF5j1welIG5mc8/5icNa8Ivnn9TCeh2bmzzysySxNfizvEOi7de2eUaoHkTU1gA==",
+  "success": true,
+  "projectFilePath": "/Users/diyorbeksadullaev/Documents/Projects/APBD/test-2-diyorbek/WebApplication1/WebApplication1/WebApplication1.csproj",
+  "expectedPackageFiles": [
+    "/Users/diyorbeksadullaev/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/diyorbeksadullaev/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/diyorbeksadullaev/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/Users/diyorbeksadullaev/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/Users/diyorbeksadullaev/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/Users/diyorbeksadullaev/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
