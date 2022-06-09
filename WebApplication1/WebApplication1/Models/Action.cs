@@ -12,4 +12,6 @@ public class Action
     [Required] public DateTime StartTime { get; set; }
     public DateTime? EndTime { get; set; }
     [Required] public bool NeedSpecialEquipment { get; set; }
+    
+    public virtual ICollection<Firefighter_Action> FirefighterActions { get; set; }
 }

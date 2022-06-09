@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Errors;
+using WebApplication1.Services;
 
 namespace WebApplication1.Controllers;
 
@@ -6,16 +8,26 @@ namespace WebApplication1.Controllers;
 [Route("[controller]")]
 public class ActionController : ControllerBase
 {
-    private readonly ILogger<ActionController> _logger;
+    private readonly IActionService _service;
 
-    public ActionController(ILogger<ActionController>logger )
+    public ActionController(IActionService service)
     {
-        _logger = logger;
+        _service = service;
     }
 
     [HttpGet]
-    public IActionResult Get()
+    [Route("{idAction:int}")]
+    public async Task<IActionResult> Get([FromRoute] int idAction)
     {
-        return Ok();
+        try
+        {
+            var result = await _service.GetAction(idAction);
+
+            return Ok(result);
+        }
+        catch (NotFoundError e)
+        {
+            return NotFound(e.Message);
+        }
     }
 }
