@@ -12,7 +12,7 @@ using WebApplication1.Contexts;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220609105653_InitialMigration")]
+    [Migration("20220609114848_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,7 +56,7 @@ namespace WebApplication1.Migrations
                         new
                         {
                             IdAction = 2,
-                            NeedSpecialEquipment = true,
+                            NeedSpecialEquipment = false,
                             StartTime = new DateTime(2022, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -172,7 +172,7 @@ namespace WebApplication1.Migrations
             modelBuilder.Entity("WebApplication1.Models.Firefighter_Action", b =>
                 {
                     b.HasOne("WebApplication1.Models.Action", "Action")
-                        .WithMany()
+                        .WithMany("FirefighterActions")
                         .HasForeignKey("IdAction")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -205,6 +205,11 @@ namespace WebApplication1.Migrations
                     b.Navigation("Action");
 
                     b.Navigation("FireTruck");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Action", b =>
+                {
+                    b.Navigation("FirefighterActions");
                 });
 #pragma warning restore 612, 618
         }

@@ -85,6 +85,6 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Firefighter_Action>().HasKey(l => new {l.IdFirefighter, l.IdAction});
-        // SeedDb(modelBuilder);
+        SeedDb(modelBuilder);
     }
 }

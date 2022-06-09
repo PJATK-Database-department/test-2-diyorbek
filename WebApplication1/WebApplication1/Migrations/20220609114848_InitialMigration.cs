@@ -109,7 +109,7 @@ namespace WebApplication1.Migrations
                 values: new object[,]
                 {
                     { 1, new DateTime(2022, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), true, new DateTime(2022, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, null, true, new DateTime(2022, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 2, null, false, new DateTime(2022, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
